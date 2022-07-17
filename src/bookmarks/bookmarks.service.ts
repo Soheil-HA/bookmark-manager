@@ -49,4 +49,14 @@ export class BookmarksService {
     this.bookmarks.push(bookmark);
     return bookmark;
   }
+
+  deleteBookmark(id: string): void {
+    this.bookmarks = this.bookmarks.filter((bookmark) => bookmark.id !== id);
+  }
+
+  updateBookmark(id: string, desc: string): Bookmark {
+    const bookmark = this.findById(id);
+    bookmark.desc = desc;
+    return bookmark;
+  }
 }
